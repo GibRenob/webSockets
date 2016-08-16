@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="sockets">
+    <head>
+        <title>Sockets are cool!</title>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+        <script src="/js/main.js"></script>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            .cell {
+                background-color: #efefef;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 20px;
+                margin: 20px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="tweets" ng-controller="TweetController as tweeter">
+            <p class="cell" ng-repeat="tweet in tweeter.incomingTweets">
+                {{ tweet.text }};
+            </p>
+        </section>
+
+        <section id="randomNumbers" ng-controller="NumberController as nCtrl">
+            <p class="cell" ng-repeat="num in nCtrl.numbers">
+                {{ num }}
+            </p>
+        </section>
+    </body>
+</html>
